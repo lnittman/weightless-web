@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background-light: #ffffff; /* White background */
+    --background-dark: #27272a; /* Dark background */
+    --color-light: #ffffff; /* White color for light mode text/icons */
+    --color-dark: #000000; /* Dark color for dark mode text/icons */
+  }
+
+  .light {
+    --background: var(--background-light);
+    --text-color: var(--color-light);
+  }
+ 
+  .dark {
+    --background: var(--background-dark);
+    --text-color: var(--color-dark);
+  }
+
+  body {
+    background-color: var(--background);
+    transition: background-color 0.3s ease;
+  }
+
+  button > div {
+    transition: opacity 0.1s ease;
+    color: var(--text-color);
+  }
+}
+ 
+@layer components {
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+}
+
+@keyframes logoFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.logo-fade-in {
+  opacity: 0;
+  animation: logoFadeIn 1s ease-in-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.information-placard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.information-placard-dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
